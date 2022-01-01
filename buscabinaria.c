@@ -18,8 +18,20 @@ void fazABuscaAi(Copo *coquinhaGelada) {
         calculaVolumedoCopo(coquinhaGelada);
         // volumeArredondado =
         //     round(coquinhaGelada->volume * coquinhaGelada->rapaziada);
+        // printf("volume calculado antes: %lf\n",
+        // coquinhaGelada->volume * coquinhaGelada->rapaziada);
         // printf("volume: %lf\n", coquinhaGelada->litrao);
-        volumeArredondado = coquinhaGelada->volume * coquinhaGelada->rapaziada;
+        if ((coquinhaGelada->volume * coquinhaGelada->rapaziada) >=
+                (coquinhaGelada->litrao + 0.3) &&
+            (coquinhaGelada->volume * coquinhaGelada->rapaziada) <
+                (coquinhaGelada->litrao + 1)) {
+            volumeArredondado =
+                (coquinhaGelada->volume * coquinhaGelada->rapaziada) + 1;
+        } else {
+            volumeArredondado =
+                coquinhaGelada->volume * coquinhaGelada->rapaziada;
+        }
+
         // printf("volume calculado: %d\n", volumeArredondado);
 
         if (volumeArredondado > coquinhaGelada->litrao) {
@@ -34,7 +46,8 @@ void fazABuscaAi(Copo *coquinhaGelada) {
                 2.0;
             // coquinhaGelada->piraiodabusca =
             //     round(coquinhaGelada->piraiodabusca * 100) / 100;
-            // printf("piraio busca 1: %lf\n", coquinhaGelada->piraiodabusca);
+            // printf("piraio busca 1: %lf\n",
+            // coquinhaGelada->piraiodabusca);
         } else if (volumeArredondado < coquinhaGelada->litrao) {
             coquinhaGelada->agazinho =
                 (coquinhaGelada->agazao + coquinhaGelada->agazinho) / 2.0;
@@ -46,7 +59,8 @@ void fazABuscaAi(Copo *coquinhaGelada) {
                 2.0;
             // coquinhaGelada->piraiodabusca =
             //     round(coquinhaGelada->piraiodabusca * 100) / 100;
-            // printf("piraio busca 2: %lf\n", coquinhaGelada->piraiodabusca);
+            // printf("piraio busca 2: %lf\n",
+            // coquinhaGelada->piraiodabusca);
         }
         // printf("piraio menor: %lf\n", coquinhaGelada->piraioMenor);
 
