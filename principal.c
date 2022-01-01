@@ -15,7 +15,7 @@ int main() {
         coquinhaGelada.agazinho = coquinhaGelada.agazao;
 
         fazABuscaAi(&coquinhaGelada);
-        coquinhaGelada.agazinho = round(coquinhaGelada.agazinho * 100) / 100;
+        // coquinhaGelada.agazinho = round(coquinhaGelada.agazinho * 100) / 100;
         printf("%.2lf\n", coquinhaGelada.agazinho);
     }
     return 0;

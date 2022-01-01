@@ -13,13 +13,14 @@ void calculaVolumedoCopo(Copo *coquinhaGelada) {
 }
 
 void fazABuscaAi(Copo *coquinhaGelada) {
-    double volumeArredondado;
+    int volumeArredondado;
     do {
         calculaVolumedoCopo(coquinhaGelada);
-        volumeArredondado =
-            round(coquinhaGelada->volume * coquinhaGelada->rapaziada);
+        // volumeArredondado =
+        //     round(coquinhaGelada->volume * coquinhaGelada->rapaziada);
         // printf("volume: %lf\n", coquinhaGelada->litrao);
-        printf("volume calculado: %lf\n", volumeArredondado);
+        volumeArredondado = coquinhaGelada->volume * coquinhaGelada->rapaziada;
+        // printf("volume calculado: %d\n", volumeArredondado);
 
         if (volumeArredondado > coquinhaGelada->litrao) {
             coquinhaGelada->agazao = coquinhaGelada->agazinho;
@@ -27,27 +28,27 @@ void fazABuscaAi(Copo *coquinhaGelada) {
             coquinhaGelada->agazinho = (coquinhaGelada->agazinho / 2.0);
             // round((coquinhaGelada->agazinho / 2.0) * 100) / 100;
             // arredondar
-            printf("agazinho 1: %lf\n", coquinhaGelada->agazinho);
+            // printf("agazinho 1: %lf\n", coquinhaGelada->agazinho);
             coquinhaGelada->piraiodabusca =
                 (coquinhaGelada->piraiodabusca + coquinhaGelada->piraioMenor) /
                 2.0;
-            // coquinhaGelada->piraiodabusca =  
+            // coquinhaGelada->piraiodabusca =
             //     round(coquinhaGelada->piraiodabusca * 100) / 100;
-            printf("piraio busca 1: %lf\n", coquinhaGelada->piraiodabusca);
+            // printf("piraio busca 1: %lf\n", coquinhaGelada->piraiodabusca);
         } else if (volumeArredondado < coquinhaGelada->litrao) {
             coquinhaGelada->agazinho =
                 (coquinhaGelada->agazao + coquinhaGelada->agazinho) / 2.0;
             // coquinhaGelada->agazinho =
             //     round(coquinhaGelada->agazinho * 100) / 100;
-            printf("agazinho 2: %lf\n", coquinhaGelada->agazinho);
+            // printf("agazinho 2: %lf\n", coquinhaGelada->agazinho);
             coquinhaGelada->piraiodabusca =
                 (coquinhaGelada->piraiodabusca + coquinhaGelada->piraioMaior) /
                 2.0;
             // coquinhaGelada->piraiodabusca =
             //     round(coquinhaGelada->piraiodabusca * 100) / 100;
-            printf("piraio busca 2: %lf\n", coquinhaGelada->piraiodabusca);
+            // printf("piraio busca 2: %lf\n", coquinhaGelada->piraiodabusca);
         }
-        printf("piraio menor: %lf\n", coquinhaGelada->piraioMenor);
+        // printf("piraio menor: %lf\n", coquinhaGelada->piraioMenor);
 
     } while (volumeArredondado != coquinhaGelada->litrao);
 }
