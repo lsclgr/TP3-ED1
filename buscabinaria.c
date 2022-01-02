@@ -13,26 +13,27 @@ void calculaVolumedoCopo(Copo *coquinhaGelada) {
 }
 
 void fazABuscaAi(Copo *coquinhaGelada) {
-    int volumeArredondado;
+    double volumeArredondado;
     do {
         calculaVolumedoCopo(coquinhaGelada);
-        // volumeArredondado =
-        //     round(coquinhaGelada->volume * coquinhaGelada->rapaziada);
+        volumeArredondado =
+            round((coquinhaGelada->volume * coquinhaGelada->rapaziada) * 100) /
+            100;
         // printf("volume calculado antes: %lf\n",
-        // coquinhaGelada->volume * coquinhaGelada->rapaziada);
+        //        coquinhaGelada->volume * coquinhaGelada->rapaziada);
         // printf("volume: %lf\n", coquinhaGelada->litrao);
-        if ((coquinhaGelada->volume * coquinhaGelada->rapaziada) >=
-                (coquinhaGelada->litrao + 0.3) &&
-            (coquinhaGelada->volume * coquinhaGelada->rapaziada) <
-                (coquinhaGelada->litrao + 1)) {
-            volumeArredondado =
-                (coquinhaGelada->volume * coquinhaGelada->rapaziada) + 1;
-        } else {
-            volumeArredondado =
-                coquinhaGelada->volume * coquinhaGelada->rapaziada;
-        }
+        // if ((coquinhaGelada->volume * coquinhaGelada->rapaziada) >=
+        //         (coquinhaGelada->litrao + 0.3) &&
+        //     (coquinhaGelada->volume * coquinhaGelada->rapaziada) <
+        //         (coquinhaGelada->litrao + 1)) {
+        //     volumeArredondado =
+        //         (coquinhaGelada->volume * coquinhaGelada->rapaziada) + 1;
+        // } else {
+        //     volumeArredondado =
+        //         coquinhaGelada->volume * coquinhaGelada->rapaziada;
+        // }
 
-        // printf("volume calculado: %d\n", volumeArredondado);
+        // printf("volume calculado: %lf\n", volumeArredondado);
 
         if (volumeArredondado > coquinhaGelada->litrao) {
             coquinhaGelada->agazao = coquinhaGelada->agazinho;
